@@ -38,10 +38,17 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(array) {
   let totalLength = 0;
   array.forEach((element) => {
-    totalLength += String(element).length;
+    if (typeof element === "number") {
+      totalLength += element;
+    } else if (typeof element === "string") {
+      totalLength += element.length;
+    } else if (typeof element === "boolean") {
+      totalLength += String(element).length;
+    }
   });
   return totalLength;
 }
+
 console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
