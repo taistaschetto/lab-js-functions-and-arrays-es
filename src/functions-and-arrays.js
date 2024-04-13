@@ -155,6 +155,8 @@ function howManyTimes() {
 console.log(howManyTimes(wordsCount));
 
 // Iteration #8: Bonus
+
+// This one seems too complicated, couldn't understand even with chatGPT answer
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -178,7 +180,19 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let maxProduct = 1;
+  for (let i = 0; i < arr.length - 3; i++) {
+    let product = arr[i] * arr[i + 1] * arr[i + 2] * arr[i + 3];
+    if (product > maxProduct) {
+      maxProduct = product;
+    }
+  }
+  return maxProduct;
+}
+
+console.log(greatestProduct(matrix));
+
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
